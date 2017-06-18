@@ -9,12 +9,12 @@ import java.util.Properties;
 
 public class test3 {
 	public static void main(String[] args) {
-		// 1. Driver
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-		}catch(ClassNotFoundException ee){
-			System.exit(-1);
-		}
+		// 1. Driver ÅX°Êµ{¦¡
+//		try{
+//			Class.forName("com.mysql.jdbc.Driver");
+//		}catch(ClassNotFoundException ee){
+//			System.exit(-1);
+//		}
 		
 		try{
 			Properties prop = new Properties();
@@ -23,7 +23,7 @@ public class test3 {
 			// 2. Connection
 			Connection conn = 
 				DriverManager.getConnection(
-					"jdbc:mysql://localhost/brad",
+					"jdbc:mysql://127.0.0.1/brad",
 					prop);
 			// 3. SQL statement
 			Statement stmt = conn.createStatement();
@@ -48,6 +48,11 @@ public class test3 {
 		}
 		
 		
+		//-------
+		Properties prop = new Properties();
+		prop.setProperty("user", "root");
+		prop.setProperty("password", "root");
 		
+	
 	}
 }
