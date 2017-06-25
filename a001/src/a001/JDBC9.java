@@ -20,8 +20,13 @@ public class JDBC9 {
 		prop.setProperty("password", "root");
 
 		try(Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/oneone",prop)) {
+			
+			
+			
+			
 			Statement stmt = conn.createStatement();
 			String account = "mike5" , password = "abcd",realname="test";
+			
 			
 			if(!isRepeat(account, stmt)){
 				String sql = "insert into member(account,password,realname)"+

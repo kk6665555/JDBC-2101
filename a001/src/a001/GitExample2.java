@@ -14,11 +14,12 @@ import java.util.Properties;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class GitExample {
+public class GitExample2 {
 
 	public static void main(String[] args) {
 		
 		long start = System.currentTimeMillis();
+
 		
 		
 		String strurl ="http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx"; 
@@ -60,8 +61,12 @@ public class GitExample {
 					psymet.setString(7, OrderUrl);
 					psymet.setString(8, ContactTel);
 					psymet.setString(9, Column1);
-					psymet.execute();
+					
+					
+					psymet.addBatch();//先儲存放旁邊  增加一點點效率
 				}
+				
+				psymet.executeBatch();
 				System.out.println("ok");
 				System.out.println(System.currentTimeMillis() - start);
 				}catch(Exception e){
@@ -84,7 +89,7 @@ public class GitExample {
 					sb.append(line.trim());//trim 兩邊去空格
 				}
 				reader.close();
-//				System.out.println(sb);
+				System.out.println(sb);
 				
 			} catch (Exception e) {
 				System.out.println(e);
